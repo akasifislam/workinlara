@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DropzoneController;
+use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -16,9 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', [HeaderController::class, 'index'])->name('header.index');
 
 
 Route::get('dropzone', [DropzoneController::class, 'dropzone']);
