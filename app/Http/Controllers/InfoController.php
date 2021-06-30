@@ -2,29 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Test;
+use App\Models\Info;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
-class TestController extends Controller
+class InfoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+    // public function index()
+    // {
+    //     $title = "Bazaz";
+
+
+    //     $info = new Info();
+    //     $info->title = $title;
+    //     $info->slug = Str::slug($title);
+    //     $info->price = 1200;
+    //     $info->is_active = true;
+    //     $info->save();
+    // }
+
     public function index()
     {
-        // $tests = Test::where('status', 0)->get();
-        // query scope
-        // $tests = Test::status()->get();
-
-        // query scope
-        // $tests = Test::statusAdmins()->get();
-        // query scope
-        // $tests = Test::statusUsers()->get();
-        // $tests = Test::status()->admins()->get();
-        $tests = Test::latest()->get();
-        return view('test.index', compact('tests'));
+        $info = Info::find(1);
+        return $info;
+        // $info->title = Str::title($info->title);
+        // return $info;
     }
 
     /**
@@ -51,10 +58,10 @@ class TestController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Info $info)
     {
         //
     }
@@ -62,10 +69,10 @@ class TestController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Info $info)
     {
         //
     }
@@ -74,10 +81,10 @@ class TestController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Info $info)
     {
         //
     }
@@ -85,10 +92,10 @@ class TestController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Info  $info
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Info $info)
     {
         //
     }

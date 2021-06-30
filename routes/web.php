@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DropzoneController;
 use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
@@ -30,3 +31,4 @@ Route::post('dropzone/store', [DropzoneController::class, 'dropzoneStore'])->nam
 
 Route::resource('posts', PostController::class);
 Route::resource('tests', TestController::class);
+Route::resource('infos', InfoController::class);

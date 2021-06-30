@@ -44,7 +44,7 @@ class Test extends Model
     protected static function booted()
     {
         static::addGlobalScope('status', function (Builder $builder) {
-            $builder->where('status', 1);
+            $builder->where('status', 0);
         });
         // static::addGlobalScope('role', function (Builder $builder) {
         //     $builder->where('role', 'user');
