@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Edit Blog Post Form - Laravel 8 CRUD Tutorial</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
-</head>
-<body>
+@extends('layouts');
+@section('content')
 <div class="container mt-2">
     <div class="row">
         <div class="col-lg-12 margin-tb">
@@ -16,14 +10,7 @@
                 <a class="btn btn-primary" href="{{ route('posts.index') }}" enctype="multipart/form-data"> Back</a>
             </div>
         </div>
-    </div>
-   
-  @if(session('status'))
-    <div class="alert alert-success mb-1 mt-1">
-        {{ session('status') }}
-    </div>
-  @endif
-  
+    </div>  
     <form action="{{ route('posts.update',$post->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
@@ -56,7 +43,7 @@
                @enderror
             </div>
             <div class="form-group">
-              <img src="{{ Storage::url($post->image) }}" height="200" width="200" alt="" />
+              <img src="{{ Storage::url($post->image) }}" height="200" width="200" alt="Image" />
             </div>
         </div>
             
@@ -66,5 +53,5 @@
    
     </form>
 </div>
-</body>
-</html>
+
+@endsection
