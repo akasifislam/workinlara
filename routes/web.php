@@ -1,11 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\DropzoneController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
+use App\Http\Controllers\User\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,3 +50,15 @@ Route::delete('myproductsDeleteAll', [ProductController::class, 'deleteAll']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+
+Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth'], 'namespace' => 'admin'], function () {
+    Route::get('dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+});
+
+
+Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {
+    Route::get('dashboard', [UserController::class, 'index'])->name('user.dashboard');
+});
