@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\DropzoneController;
+use App\Http\Controllers\EmpController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\PostController;
@@ -62,3 +63,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth'], 'namespace
 Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' => 'user'], function () {
     Route::get('dashboard', [UserController::class, 'index'])->name('user.dashboard');
 });
+
+
+
+
+Route::get('employee', [EmpController::class, 'getAllEmployees']);
