@@ -43,3 +43,7 @@ Route::delete('/skdfjhfgsdhjgf', [PostController::class, 'deleteAllPost'])->name
 Route::get('myproducts', [ProductController::class, 'index']);
 Route::delete('myproducts/{id}', [ProductController::class, 'destroy']);
 Route::delete('myproductsDeleteAll', [ProductController::class, 'deleteAll']);
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
