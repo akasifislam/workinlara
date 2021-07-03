@@ -68,3 +68,7 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
 
 Route::get('employee', [EmpController::class, 'getAllEmployees']);
+
+
+
+Route::get('download-pdf', [EmpController::class, 'downloadPdf'])->name('app.download.pdf');
