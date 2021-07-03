@@ -52,6 +52,15 @@ class PostController extends Controller
             ->with('success', 'Post has been created successfully.');
     }
 
+    public function deleteAllPost(Request $request)
+    {
+        $ghvgsfhgfh =  $request->$ids;
+        return $ghvgsfhgfh;
+        $ids = $request->$ids;
+        Post::whereIn('id', $ids)->delete();
+        return response()->json(['success' => 'Post Catch Out']);
+    }
+
     /**
      * Display the specified resource.
      *

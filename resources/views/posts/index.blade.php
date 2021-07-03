@@ -7,11 +7,13 @@
             </div>
             <div class="pull-right mb-2">
                 <a class="btn btn-success" href="{{ route('posts.create') }}"> Create New Post</a>
+                <a href="" class="btn btn-danger" id="deleteAllPost">Delete All</a>
             </div>
         </div>
     </div>   
     <table class="table table-bordered">
         <tr>
+            <th width="40px"><input type="checkbox" id="checAll"></th>
             <th>S.No</th>
             <th>Image</th>
             <th>Title</th>
@@ -19,7 +21,8 @@
             <th width="280px">Action</th>
         </tr>
         @foreach ($posts as $key => $post)
-        <tr>
+        <tr id="postid{{ $post->id  }}">
+            <td> <input type="checkbox" name="ids" class="checkBoxClass" value="{{ $post->id }}"> </td>
             <td>{{ $key+1 }}</td>
             <td><img src="{{ Storage::url($post->image) }}" height="75" width="75" alt="dfghdfh" /></td>
             <td>{{ $post->title }}</td>
