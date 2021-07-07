@@ -68,7 +68,6 @@ Route::group(['prefix' => 'user', 'middleware' => ['user', 'auth'], 'namespace' 
 
 
 Route::get('employee', [EmpController::class, 'getAllEmployees']);
-
-
-
-Route::get('download-pdf', [EmpController::class, 'downloadPdf'])->name('app.download.pdf');
+Route::get('pdf', [EmpController::class, 'downloadPdf'])->name('app.download.pdf');
+Route::get('excel', [EmpController::class, 'exportIntoExcel'])->name('app.download.excel');
+Route::get('csv', [EmpController::class, 'exportIntoCSV'])->name('app.download.csv');

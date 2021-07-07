@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Exports\EmployeeExport;
+use Excel;
 use PDF;
 
 class EmpController extends Controller
@@ -21,5 +23,15 @@ class EmpController extends Controller
         $pdf = PDF::loadView('employee.index', $data);
 
         return $pdf->download('employee.pdf');
+    }
+
+    public function exportIntoExcel()
+    {
+        return Excel::download(new EmployeeExport, 'employeelist.xlsx');
+    }
+
+    public function exportIntoCSV()
+    {
+        return Excel::download(new EmployeeExport, 'employeelist.csv');
     }
 }
