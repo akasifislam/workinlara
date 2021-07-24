@@ -1,10 +1,12 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DropzoneController;
 use App\Http\Controllers\EmpController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\InfoController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TestController;
@@ -71,3 +73,18 @@ Route::get('employee', [EmpController::class, 'getAllEmployees']);
 Route::get('pdf', [EmpController::class, 'downloadPdf'])->name('app.download.pdf');
 Route::get('excel', [EmpController::class, 'exportIntoExcel'])->name('app.download.excel');
 Route::get('csv', [EmpController::class, 'exportIntoCSV'])->name('app.download.csv');
+
+
+
+// Route::resource('category', CategoryController::class);
+
+Route::get('date-time', [CategoryController::class, 'getDateTime'])->name('date.time.index');
+// Route::post('demos/sortabledatatable',  [CategoryController::class, 'updateOrder']);
+
+
+// Route::get('date-time', 'HomeController@getDateTime')->name('date.time.index');
+// Route::get('date-time', 'HomeController@getDateTime')->name('date.time.index');
+
+Route::get('/apple', [ItemController::class, 'itemView']);
+
+Route::post('/update-items', [ItemController::class, 'updateItems'])->name('update.items');
