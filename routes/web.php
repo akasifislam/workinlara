@@ -97,5 +97,5 @@ Route::get('/dynamic-field', [DynamicFieldController::class, 'index']);
 Route::post('/dynamic-field/insert', [DynamicFieldController::class, 'insert'])->name('dynamic-field.indert');
 
 
-Route::get('add-remove-input-fields', [AddRemoveFieldController::class, 'index']);
-Route::post('add-remove-input-fields', [AddRemoveFieldController::class, 'store']);
+Route::get('append-dy', [AddRemoveFieldController::class, 'index']);
+Route::post('append-dy', [AddRemoveFieldController::class, 'store']);
