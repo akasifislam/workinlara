@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DropzoneController;
+use App\Http\Controllers\DynamicFieldController;
 use App\Http\Controllers\EmpController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\InfoController;
@@ -88,3 +89,8 @@ Route::get('date-time', [CategoryController::class, 'getDateTime'])->name('date.
 Route::get('/apple', [ItemController::class, 'itemView']);
 
 Route::post('/update-items', [ItemController::class, 'updateItems'])->name('update.items');
+
+
+
+Route::get('/dynamic-field', [DynamicFieldController::class, 'index']);
+Route::post('/dynamic-field/insert', [DynamicFieldController::class, 'insert'])->name('dynamic-field.indert');

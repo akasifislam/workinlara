@@ -16,7 +16,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    @stack('css')
 </head>
 <body>
     <div id="app">
@@ -80,7 +80,7 @@
     </div>
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-    @method('js')
+    @stack('js')
     
 </body>
 </html>
