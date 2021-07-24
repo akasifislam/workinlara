@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AddRemoveFieldController;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DropzoneController;
@@ -94,3 +95,7 @@ Route::post('/update-items', [ItemController::class, 'updateItems'])->name('upda
 
 Route::get('/dynamic-field', [DynamicFieldController::class, 'index']);
 Route::post('/dynamic-field/insert', [DynamicFieldController::class, 'insert'])->name('dynamic-field.indert');
+
+
+Route::get('add-remove-input-fields', [AddRemoveFieldController::class, 'index']);
+Route::post('add-remove-input-fields', [AddRemoveFieldController::class, 'store']);
