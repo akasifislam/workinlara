@@ -12,7 +12,9 @@ class AddRemoveFieldController extends Controller
     {
         return view("add-remove-input-fields");
     }
-    public function store(Request $request) {
+    public function store(Request $request)
+    
+    {
  
        $data = [];
  
