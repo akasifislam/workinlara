@@ -11,4 +11,10 @@ class Post extends Model
     protected $fillable = [
         'title', 'description'
     ];
+
+
+    public function user()
+    {
+        return $this->hasOne(User::class, 'role_id');
+    }
 }
