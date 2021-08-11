@@ -6,6 +6,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DropzoneController;
 use App\Http\Controllers\DynamicFieldController;
 use App\Http\Controllers\EmpController;
+use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\HeaderController;
 use App\Http\Controllers\InfoController;
 use App\Http\Controllers\ItemController;
@@ -99,3 +100,8 @@ Route::post('/dynamic-field/insert', [DynamicFieldController::class, 'insert'])-
 
 Route::get('append-dy', [AddRemoveFieldController::class, 'index']);
 Route::post('append-dy', [AddRemoveFieldController::class, 'store']);
+
+
+// notification 
+
+Route::get('/send-test-notification',[EnrollmentController::class,'testNotification']);
