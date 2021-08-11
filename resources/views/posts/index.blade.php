@@ -21,7 +21,7 @@
             <th width="280px">Action</th>
         </tr>
         @foreach ($posts as $key => $post)
-        @cannot('view-post',$post)
+        @can('view-any',$post)
         <tr id="postid{{ $post->id  }}">
             <td> <input type="checkbox" name="ids" class="checkBoxClass" value="{{ $post->id }}"> </td>
             <td>{{ $key+1 }}</td>
@@ -37,7 +37,7 @@
                 </form>
             </td>
         </tr>
-        @endcannot
+        @endcan
         @endforeach
     </table>    
 @endsection

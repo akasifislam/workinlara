@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        'App\Models\Post' => 'App\Policies\PostPolicy',
     ];
 
     /**
@@ -24,13 +24,19 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
+        /**
+         * laravel  gate
+         */
+        // Gate::define('view-post', function ($user, $post) {
+        //     return $user->id === $post->user->role_id;
+        // });
 
-        Gate::define('view-post', function ($user, $post) {
-            return $user->id === $post->user->role_id;
-        });
+        // Gate::after(function ($user) {
+        //     return !$user->isSuperAdmin();
+        // });
 
-        Gate::after(function ($user) {
-            return !$user->isSuperAdmin();
-        });
+        /**
+         * laravel policy
+         */
     }
 }
